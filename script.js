@@ -6,6 +6,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
+    computerSelection = getComputerChoice();
+    playerSelection = prompt('Choose Rock, Paper or Scissors.');
+
     let playerChoice = playerSelection.toLowerCase();
 
     switch(playerChoice){
@@ -45,8 +48,7 @@ function game(){
     let computerScore = 0;
 
     for(let i = 0; i < 5; i++){
-        computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
         if(winner === 'player') {
             playerScore += 1;
         } else if (winner === 'computer') {
@@ -65,8 +67,7 @@ function game(){
 
 }
 
-const playerSelection = 'pApEr';
+let playerSelection;
 let computerSelection;
 
-console.log(playRound(playerSelection, computerSelection));
 game();
