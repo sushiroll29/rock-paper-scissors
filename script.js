@@ -1,17 +1,28 @@
 let winner = '';
 
+let playerSelection;
+let computerSelection = getComputerChoice();
+
+
 function getComputerChoice() {
     let possibleChoices = ['Rock', 'Paper', 'Scissors'];
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
 
-function playRound(playerSelection, computerSelection){
+
+const choices = document.querySelectorAll('.choice');
+choices.forEach(choice => choice.addEventListener('click', () => {
+    playerSelection = choice.textContent.toLowerCase();
     computerSelection = getComputerChoice();
-    playerSelection = prompt('Choose Rock, Paper or Scissors.');
 
-    let playerChoice = playerSelection.toLowerCase();
+    playRound(playerSelection, computerSelection);
+    game();
+}));
 
-    switch(playerChoice){
+
+function playRound(playerSelection, computerSelection){
+
+    switch(playerSelection){
         case 'rock':
             switch(computerSelection){
                 case 'Paper': winner = 'computer';
@@ -47,7 +58,7 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    for(let i = 0; i < 5; i++){
+    // for(let i = 0; i < 5; i++){
         console.log(playRound(playerSelection, computerSelection));
         if(winner === 'player') {
             playerScore += 1;
@@ -56,8 +67,8 @@ function game(){
         }
         console.log(`Player score: ${playerScore}`);
         console.log(`Computer score: ${computerScore}`);
-        // winner = '';
-    }
+        winner = '';
+    // }
 
     if(playerScore > computerScore) {
         console.log('You win the game!');
@@ -67,7 +78,4 @@ function game(){
 
 }
 
-let playerSelection;
-let computerSelection;
-
-game();
+// game();
