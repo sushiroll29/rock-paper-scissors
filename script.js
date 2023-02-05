@@ -1,6 +1,6 @@
 let winner = '';
 let playerSelection;
-let computerSelection = getComputerChoice();
+let computerSelection;
 
 function getComputerChoice() {
     let possibleChoices = ['Rock', 'Paper', 'Scissors'];
@@ -10,13 +10,16 @@ function getComputerChoice() {
 const choices = document.querySelectorAll('.choice');
 choices.forEach(choice => choice.addEventListener('click', () => {
     playerSelection = choice.textContent.toLowerCase();
+    console.log(playerSelection);
     computerSelection = getComputerChoice();
+    console.log(computerSelection);
     game();
 }));
 
 function playRound(playerSelection, computerSelection){
     const message = document.querySelector('.message');
-
+    console.log(playerSelection);
+    console.log(computerSelection);
     switch(playerSelection){
         case 'rock':
             switch(computerSelection){
@@ -30,6 +33,7 @@ function playRound(playerSelection, computerSelection){
                     message.textContent = "It's a tie!";
                     break;
             }
+        break;
         case 'paper':
             switch(computerSelection){
                 case 'Scissors': winner = 'computer';
@@ -42,6 +46,7 @@ function playRound(playerSelection, computerSelection){
                     message.textContent =  "It's a tie!";
                     break;
             }
+        break;
         case 'scissors':
             switch(computerSelection){
                 case 'Rock': winner = 'computer';
@@ -54,6 +59,7 @@ function playRound(playerSelection, computerSelection){
                     message.textContent = "It's a tie!";
                     break;
             }
+        break;
     }
 }
 
