@@ -1,16 +1,11 @@
 let winner = '';
-
 let playerSelection;
 let computerSelection = getComputerChoice();
-
 
 function getComputerChoice() {
     let possibleChoices = ['Rock', 'Paper', 'Scissors'];
     return possibleChoices[Math.floor(Math.random() * possibleChoices.length)];
 }
-
-
-
 
 const choices = document.querySelectorAll('.choice');
 choices.forEach(choice => choice.addEventListener('click', () => {
@@ -19,59 +14,70 @@ choices.forEach(choice => choice.addEventListener('click', () => {
     game();
 }));
 
-
 function playRound(playerSelection, computerSelection){
+    const message = document.querySelector('.message');
 
     switch(playerSelection){
         case 'rock':
             switch(computerSelection){
                 case 'Paper': winner = 'computer';
-                    return 'You lose! Paper beats Rock.';
+                    message.textContent = 'You lose! Paper beats Rock.';
+                    break;
                 case 'Scissors': winner = 'player';
-                    return 'You win! Rock beats Scissors.';
+                    message.textContent = 'You win! Rock beats Scissors.';
+                    break;
                 case 'Rock': winner = '';
-                    return "It's a tie!";
+                    message.textContent = "It's a tie!";
+                    break;
             }
         case 'paper':
             switch(computerSelection){
                 case 'Scissors': winner = 'computer';
-                    return 'You lose! Scissors beats Paper.';
+                    message.textContent = 'You lose! Scissors beats Paper.';
+                    break;
                 case 'Rock': winner = 'player';
-                    return 'You win! Paper beats Rock.';
+                    message.textContent = 'You win! Paper beats Rock.';
+                    break;
                 case 'Paper': winner = '';
-                    return "It's a tie!";
+                    message.textContent =  "It's a tie!";
+                    break;
             }
         case 'scissors':
             switch(computerSelection){
                 case 'Rock': winner = 'computer';
-                    return 'You lose! Rock beats scissors.';
+                    message.textContent = 'You lose! Rock beats Scissors.';
+                    break;
                 case 'Paper': winner = 'player';
-                    return 'You win! Scissors beats Paper.';
+                    message.textContent = 'You win! Scissors beats Paper.';
+                    break;
                 case 'Scissors': winner = '';
-                    return "It's a tie!";
+                    message.textContent = "It's a tie!";
+                    break;
             }
-        default: return 'Please choose Rock, Paper or Scissors.';
     }
 }
 
 function checkScore(){
+    const message = document.querySelector('.message');
+
     if (playerScore === 5) {
-        console.log("You win the game!");
+        message.textContent = "You win the game!";
         playerScore = 0;
         computerScore = 0;
         return;
     } else if (computerScore === 5) {
+        message.textContent = "Computer wins the game!";
         playerScore = 0;
         computerScore = 0;
         return;
-}
+    }
 }
 
 let playerScore = 0;
 let computerScore = 0;
 
 function game(){
-        console.log(playRound(playerSelection, computerSelection));
+        playRound(playerSelection, computerSelection);
         if(winner === 'player') {
             playerScore += 1;
             checkScore();
@@ -80,22 +86,10 @@ function game(){
             checkScore();
         } else return;
 
-        const playerSc = document.createElement('p');
-        const computerSc = document.createElement('p');
+        const playerSc = document.querySelector('.player-score');
+        const computerSc = document.querySelector('.computer-score');
 
         playerSc.textContent = `Player score: ${playerScore}`;
         computerSc.textContent = `Computer score: ${computerScore}`;
 
-        const container = document.querySelector('.container');
-
-        
-        container.appendChild(playerSc);
-        container.appendChild(computerSc);
-        // console.log(`Player score: ${playerScore}`);
-        // console.log(`Computer score: ${computerScore}`);
-        // winner = '';
-    // }
-
 }
-
-// game();
