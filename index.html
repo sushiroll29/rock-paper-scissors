@@ -7,19 +7,31 @@
     <title>Rock-Paper-Scissors</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button class="choice">Rock</button>
-    <button class="choice">Paper</button>
-    <button class="choice">Scissors</button>
+    <div class="choices">
+        <button class="choice">Rock</button>
+        <button class="choice">Paper</button>
+        <button class="choice">Scissors</button>
+    </div>
 
     <div class="info">
-        <p class="message">Pick your weapon</p>
+        <p class="message">Choose your weapon.</p>
     </div>
 
     <div class="container">
-        <p class="player-score">Player score: 0</p>
-        <p class="computer-score">Computer score: 0</p>
+        <div class="score-info">
+            <p>Player</p>
+            <p class="score" id="player-score">0</p>
+        </div>
+        <div class="score-info">
+            <p>Computer</p>
+            <p class="score" id="computer-score">0</p>
+        </div>
+        
     </div>
 </body>
 </html>

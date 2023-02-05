@@ -1,3 +1,52 @@
+body, html {
+    font-family: 'Manrope', sans-serif;
+    height: 100%;
+}
+
 body {
-    /* color: salmon; */
+    background-color: #F5F1EE;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 200px;
+}
+
+.choice {
+    flex: 1;
+    border: 0.15rem solid #C4BDAC;
+    border-radius: 5px;
+    background-color: #F4EEE1;
+    font-size: 0.9rem;
+    margin: 1rem;
+    text-align: center;
+    height: 5rem;
+    width: 5rem;
+    max-width: 5rem;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+}
+
+.choice:hover {
+    background-color: #E4DAC2;
+}
+
+.info, .container {
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.7rem;
 }
